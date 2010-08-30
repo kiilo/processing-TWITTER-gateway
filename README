@@ -4,7 +4,7 @@ this gateway was used in my workshop "internet of the things" @ NTUA TW 2010.pla
 
 !! USAGE
 
-copy the folder including subdirectories  twitterGateway07 AS IT IS to you processing SKETCH folder
+copy the folder including subdirectories  twitterGateway04 AS IT IS to you processing SKETCH folder
 start processing in // file / sketchbook you should see twitterGateway07
 open the config pane and replace at least <YOUR_LOGIN> <YOUR_PASSWORD> with your login and password ;-)
 edit the twiietr.trackwords entry with something useful eg "love hate" 
@@ -17,3 +17,4 @@ kiilo
 
 http://kiilo.org
 http://2010.playaround.cc 
+
