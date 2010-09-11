@@ -18,3 +18,7 @@ kiilo
 http://kiilo.org
 http://2010.playaround.cc 
 
+
+TODO 
+because TWITTER changed their API to OAuth only, it is not possible to send tweets by OSC  - don't blame me
+  
