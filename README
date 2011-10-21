@@ -16,12 +16,14 @@ you can feed this by using Open Sound Control to your own applications PD, MAX/M
 
 !!! Settings pane
 OSC listening port; 
- this is the port opened by the gateway to receive osc message and forward them as tweets  to YOUR twitter account
+ this is the port opened by the gateway to receive osc message 
+ and forward them as tweets to YOUR twitter account
 OSC listening address; 
  this is the open sound control address the gateway reacts ("/toTwitter") 
 
 OSC destination host; 
- where should the gateway forward the messages to? eg. localhost, 10.0.0.255, X.Y.Z.255 ... read about "broadcast address".
+ where should the gateway forward the messages to? 
+ eg. localhost, 10.0.0.255, X.Y.Z.255 ... read about "broadcast address".
 OSC destination port; 
  every packet in the lan is send to a port - where a server is listening to, hopefully.
 OSC sending address; 
@@ -32,7 +34,8 @@ Twitter track ids;
 Twitter track words; 
  get a realtime flow of tweets which contain this words (eg. "hate lave") 
 
-Restart the gateway if you make changes in the settings pane (TODO for me to restart within running app gracefully)
+RESTART the gateway if you make changes in the settings tab (TODO for me to restart within running app gracefully)
+settings are stored in the file gateway.poperties
 
 start the gateway and observe the flow ...
 
