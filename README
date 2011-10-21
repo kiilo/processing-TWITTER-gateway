@@ -12,7 +12,7 @@ your browser will open to authorize the application with YOUR twitter account (t
 authorize the app and twitter is presenting you a pin number ~ type this pin caefuly number in the AUTH tab.
 if the application is successfully authentificated it will send out the live stream of tracked words.
 
-you can feed this by using Open Sound Control to your own applications PD, MAX/MSP, VVVV, ...  you name it. 
+you can feed the stream into your own application by using Open Sound Control (eg. PD, MAX/MSP, VVVV, ...  you name it). 
 
 !!! Settings pane
 OSC listening port; 
