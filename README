@@ -4,12 +4,30 @@ this gateway was used in my workshop "internet of the things" @ NTUA TW 2010.pla
 
 !! USAGE
 
-copy the folder including subdirectories  twitterGateway04 AS IT IS to you processing SKETCH folder
-start processing in // file / sketchbook you should see twitterGateway07
-open the config pane and replace at least <YOUR_LOGIN> <YOUR_PASSWORD> with your login and password ;-)
-edit the twiietr.trackwords entry with something useful eg "love hate" 
-start the gateway and observe the flow ...
+copy the folder including subdirectories  twitterGateway_v2_06/ AS IT IS to you processing SKETCH folder (sketchbook). 
+Start processing in // file / sketchbook you should see twitterGateway_v2_06
 
+!!! first start of the sketch
+your browser will open to authorize the application with YOUR twitter account (this is part of the oauth login process)
+authorize the app and twitter is presenting you a pin number ~ type this pin caefuly number in the AUTH tab.
+if the application is successfully authentificated it will send out the live stream of tracked words.
+
+you can feed this by using Open Sound Control to your own applications PD, MAX/MSP, VVVV, ...  you name it. 
+
+!!! Settings pane
+OSC listening port; this is the port opened by the gateway to receive osc message and forward them as tweets  to YOUR twitter account
+OSC listening address; this is the open sound control address the gateway reacts ("/toTwitter") 
+
+OSC destination host; where should the gateway forward the messages to? eg. localhost, 10.0.0.255, X.Y.Z.255 ... read about "broadcast address".
+OSC destination port; every packet in the lan is send to a port - where a server is listening to, hopefully.
+OSC sending address; the osc address pattern used for osc messages (eg "/fromTwitter")
+
+Twitter track ids; observe specific twitter users
+Twitter track words; get a realtime flow of tweets which contain this words (eg. "hate lave") 
+
+Restart the gateway if you make changes in the settings pane (TODO for me to restart within running app gracefully)
+
+start the gateway and observe the flow ...
 
 
 good luck
