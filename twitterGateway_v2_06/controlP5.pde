@@ -73,7 +73,7 @@ void SetupControlP5() {
   TwitterFollowIDsC5.setColorBackground(color(250,250,250));
   TwitterFollowIDsC5.setColorValue(color(10,10,10));
   String TwitterFollowIDsString = "";
-  if (TwitterFollowIDs.length > 1) {
+  if (TwitterFollowIDs.length > 0) {
     for (int i = 0 ; i < TwitterFollowIDs.length; i++) {
       TwitterFollowIDsString += String.valueOf(TwitterFollowIDs[i]) + " ";
       }
@@ -147,9 +147,9 @@ void controlEvent(ControlEvent theControlEvent) {
     }
     if (CtrlStr.equals("TWITTER FOLLOW IDS")) {
       String[] TwitterFollowIDsString = split(CtrlValueStr," ");
-      if (TwitterFollowIDsString.length > 1) {
+      if (TwitterFollowIDsString.length > 0) {
         TwitterFollowIDs = new long[ TwitterFollowIDsString.length ];
-        for (int i=0; i<TwitterFollowIDs.length; i++) {
+        for (int i=0; i < TwitterFollowIDs.length; i++) {
           TwitterFollowIDs[i] = Long.parseLong( TwitterFollowIDsString[i] );
           }
       }

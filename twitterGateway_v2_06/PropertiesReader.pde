@@ -28,7 +28,7 @@ void SetupP5Properties() {
     }
     
     String[] TwitterFollowIDsString = split(props.getStringProperty("twitter.followIDs","69362660")," ");
-    if (TwitterFollowIDsString.length > 1) {
+    if (TwitterFollowIDsString.length > 0) {
       TwitterFollowIDs = new long[ TwitterFollowIDsString.length ];
       for (int i=0; i<TwitterFollowIDs.length; i++) {
         TwitterFollowIDs[i] = Long.parseLong( TwitterFollowIDsString[i] );
@@ -91,13 +91,13 @@ void SaveProperties() {
         props.setProperty("twitter.AccessTokenSecret", TwitterAccessTokenSecret);
         
         String TwitterFollowIDsString = "";
-        /*
-        if (TwitterFollowIDs.length > 1) {
+        
+        if (TwitterFollowIDs.length > 0) {
           for (int i = 0 ; i < TwitterFollowIDs.length; i++) {
             TwitterFollowIDsString += String.valueOf(TwitterFollowIDs[i]) + " ";
           }
         } 
-        */       
+               
         props.setProperty("twitter.followIDs", TwitterFollowIDsString);
         
         String TwitterTrackwordsString = "";

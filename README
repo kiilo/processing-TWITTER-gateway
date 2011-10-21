@@ -15,15 +15,22 @@ if the application is successfully authentificated it will send out the live str
 you can feed this by using Open Sound Control to your own applications PD, MAX/MSP, VVVV, ...  you name it. 
 
 !!! Settings pane
-OSC listening port; this is the port opened by the gateway to receive osc message and forward them as tweets  to YOUR twitter account
-OSC listening address; this is the open sound control address the gateway reacts ("/toTwitter") 
+OSC listening port; 
+ this is the port opened by the gateway to receive osc message and forward them as tweets  to YOUR twitter account
+OSC listening address; 
+ this is the open sound control address the gateway reacts ("/toTwitter") 
 
-OSC destination host; where should the gateway forward the messages to? eg. localhost, 10.0.0.255, X.Y.Z.255 ... read about "broadcast address".
-OSC destination port; every packet in the lan is send to a port - where a server is listening to, hopefully.
-OSC sending address; the osc address pattern used for osc messages (eg "/fromTwitter")
+OSC destination host; 
+ where should the gateway forward the messages to? eg. localhost, 10.0.0.255, X.Y.Z.255 ... read about "broadcast address".
+OSC destination port; 
+ every packet in the lan is send to a port - where a server is listening to, hopefully.
+OSC sending address; 
+ the osc address pattern used for osc messages (eg "/fromTwitter")
 
-Twitter track ids; observe specific twitter users
-Twitter track words; get a realtime flow of tweets which contain this words (eg. "hate lave") 
+Twitter track ids; 
+ observe specific twitter users
+Twitter track words; 
+ get a realtime flow of tweets which contain this words (eg. "hate lave") 
 
 Restart the gateway if you make changes in the settings pane (TODO for me to restart within running app gracefully)
 
@@ -38,5 +45,4 @@ http://2010.playaround.cc
 
 
 TODO 
-because TWITTER changed their API to OAuth only, it is not possible to send tweets by OSC  - don't blame me
-  
+* graceful restart on setting changes  
