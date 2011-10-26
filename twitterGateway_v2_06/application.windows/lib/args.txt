@@ -1,0 +1,3 @@
+
+twitterGateway_v2_06
+oscP5.jar,controlP5.jar,twitter4j-core-2.2.5-SNAPSHOT.jar,twitter4j-stream-2.2.5-SNAPSHOT.jar,twitter4j-async-2.2.5-SNAPSHOT.jar,twitterGateway_v2_06.jar,core.jar

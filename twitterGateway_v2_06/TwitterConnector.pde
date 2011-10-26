@@ -22,6 +22,8 @@ String pin = "";
 RequestToken requestToken = null;
 AccessToken accessToken = null;
 
+PrintWriter output;
+
 
 void SetupTwitter() {
   //twitterIn = new TwitterConnectStream();
@@ -44,11 +46,14 @@ void SetupTwitter() {
   //    println(ex);
   //  }
   ActivityLogAddLine("twitter connector ready");
+  output = createWriter("log.txt"); 
 
 
   StatusListener twitterIn = new StatusListener() {
     public void onStatus(Status status) {
-      //System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+      // println("@" + status.getUser().getScreenName() + " - " + status.getText());
+      output.println(TimeStamp()+", @" + status.getUser().getScreenName() + ", " + status.getText());
+      output.flush();
       TwitterToOsc(status.getUser().getScreenName(), status.getText());
     }
 

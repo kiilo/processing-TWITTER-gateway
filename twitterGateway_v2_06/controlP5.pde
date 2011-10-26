@@ -178,12 +178,16 @@ void ActivityLogAddLine(String aTextLine) {
   }
   int length =  aTextLine.replaceAll("[^\\p{ASCII}]","*").length();
   if (length > 12) {length = 12;}
-  String TimeStamp = String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
+  String MyTimeStamp = String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
   //String aMessage = aTextLine.replaceAll(".[^\\p{ASCII}]","*");
   // !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`
   String aMessage = aTextLine.replaceAll("[^A-Za-z !\"#$%&'()*+-,./0123456789:;<=>?@^_`]","*");
-  ActivityLogTextarea.setText(ActivityLogTextarea.text()+TimeStamp+" "+aMessage+"\n");
+  ActivityLogTextarea.setText(ActivityLogTextarea.text()+MyTimeStamp+" "+aMessage+"\n");
   //ActivityLogTextarea.setText(ActivityLogTextarea.text()+String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second())+" "+"\n");
+}
+
+String TimeStamp() {
+  return String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
 }
 
 public void PIN(String theText) {

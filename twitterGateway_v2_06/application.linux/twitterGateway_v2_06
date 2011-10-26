@@ -1,0 +1,4 @@
+#!/bin/sh
+
+APPDIR=$(dirname "$0")
+java  -Djava.library.path="$APPDIR" -cp "$APPDIR/lib/oscP5.jar:$APPDIR/lib/controlP5.jar:$APPDIR/lib/twitter4j-core-2.2.5-SNAPSHOT.jar:$APPDIR/lib/twitter4j-stream-2.2.5-SNAPSHOT.jar:$APPDIR/lib/twitter4j-async-2.2.5-SNAPSHOT.jar:$APPDIR/lib/twitterGateway_v2_06.jar:$APPDIR/lib/core.jar" twitterGateway_v2_06
