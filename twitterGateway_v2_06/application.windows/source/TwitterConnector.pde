@@ -51,8 +51,20 @@ void SetupTwitter() {
 
   StatusListener twitterIn = new StatusListener() {
     public void onStatus(Status status) {
-      System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
-      output.println(TimeStamp()+", @" + status.getUser().getScreenName() + ", " + status.getText());
+      double Longitude;
+      double Latitude;
+      GeoLocation GeoLoc = status.getGeoLocation();
+      if (GeoLoc != null) {
+        //println("YES got a location");
+        Longitude = GeoLoc.getLongitude();
+        Latitude = GeoLoc.getLatitude();
+      }
+      else {
+        Longitude = 0;
+        Latitude = 0; 
+      }
+      println( TimeStamp()+"\t" + Latitude + "\t" + Longitude + "\t"+ status.getUser().getScreenName() + "\t" + status.getText());
+      output.println(TimeStamp()+"\t" + Latitude + "\t" + Longitude + "\t"+ status.getUser().getScreenName() + "\t" + status.getText());
       output.flush();
       TwitterToOsc(status.getUser().getScreenName(), status.getText());
     }

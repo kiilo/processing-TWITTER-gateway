@@ -25,7 +25,7 @@ void draw() {
   //PImage b = loadImage("backgr.png");
   background(backgr);
   controlP5.draw();
-  //delay(20);
+  delay(5);
 }
 
 

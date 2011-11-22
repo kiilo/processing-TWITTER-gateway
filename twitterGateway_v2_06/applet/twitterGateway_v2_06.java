@@ -67,7 +67,7 @@ public void draw() {
   //PImage b = loadImage("backgr.png");
   background(backgr);
   controlP5.draw();
-  //delay(20);
+  delay(5);
 }
 
 
@@ -254,6 +254,8 @@ String pin = "";
 RequestToken requestToken = null;
 AccessToken accessToken = null;
 
+PrintWriter output;
+
 
 public void SetupTwitter() {
   //twitterIn = new TwitterConnectStream();
@@ -276,11 +278,26 @@ public void SetupTwitter() {
   //    println(ex);
   //  }
   ActivityLogAddLine("twitter connector ready");
+  output = createWriter("log.txt"); 
 
 
   StatusListener twitterIn = new StatusListener() {
     public void onStatus(Status status) {
-      System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+      double Longitude;
+      double Latitude;
+      GeoLocation GeoLoc = status.getGeoLocation();
+      if (GeoLoc != null) {
+        //println("YES got a location");
+        Longitude = GeoLoc.getLongitude();
+        Latitude = GeoLoc.getLatitude();
+      }
+      else {
+        Longitude = 0;
+        Latitude = 0; 
+      }
+      println( TimeStamp()+"\t" + Latitude + "\t" + Longitude + "\t"+ status.getUser().getScreenName() + "\t" + status.getText());
+      output.println(TimeStamp()+"\t" + Latitude + "\t" + Longitude + "\t"+ status.getUser().getScreenName() + "\t" + status.getText());
+      output.flush();
       TwitterToOsc(status.getUser().getScreenName(), status.getText());
     }
 
@@ -637,12 +654,16 @@ public void ActivityLogAddLine(String aTextLine) {
   }
   int length =  aTextLine.replaceAll("[^\\p{ASCII}]","*").length();
   if (length > 12) {length = 12;}
-  String TimeStamp = String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
+  String MyTimeStamp = String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
   //String aMessage = aTextLine.replaceAll(".[^\\p{ASCII}]","*");
   // !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`
   String aMessage = aTextLine.replaceAll("[^A-Za-z !\"#$%&'()*+-,./0123456789:;<=>?@^_`]","*");
-  ActivityLogTextarea.setText(ActivityLogTextarea.text()+TimeStamp+" "+aMessage+"\n");
+  ActivityLogTextarea.setText(ActivityLogTextarea.text()+MyTimeStamp+" "+aMessage+"\n");
   //ActivityLogTextarea.setText(ActivityLogTextarea.text()+String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second())+" "+"\n");
+}
+
+public String TimeStamp() {
+  return String.valueOf(day())+"."+String.valueOf(month())+"."+String.valueOf(year())+" "+String.valueOf(hour())+":"+String.valueOf(minute())+":"+String.valueOf(second());
 }
 
 public void PIN(String theText) {
