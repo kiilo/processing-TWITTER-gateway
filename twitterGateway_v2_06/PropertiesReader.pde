@@ -38,7 +38,7 @@ void SetupP5Properties() {
       TwitterFollowIDs = new long[0];
     }
     
-    TwitterTrackWords = split(props.getStringProperty("twitter.trackwords","playaround")," ");
+    TwitterTrackWords = split(props.getStringProperty("twitter.trackwords","playaround"),",");
     //props.close();
     
   }
